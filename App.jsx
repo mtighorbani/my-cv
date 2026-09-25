@@ -1071,10 +1071,25 @@ export default function App() {
         }
 
         @media (max-width: 800px) {
-          .hero-grid, .about-grid { grid-template-columns: 1fr; }
-          .nav-links { gap: 16px; }
-          .nav-link { font-size: 12.5px; }
-          .mg-site { --section-gap: 48px; --gutter: 20px; }
+          .mg-site { --section-gap: 48px; --gutter: 20px; padding-top: 72px; }
+          .nav-inner { display: flex; align-items: center; gap: 12px; padding: 12px var(--gutter); }
+          .nav-start { min-width: 0; flex: 1; }
+          .nav-badge { flex: none; padding: 6px 12px; }
+          .nav-links {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 16px;
+            padding-bottom: 2px;
+            scrollbar-width: none;
+          }
+          .nav-links::-webkit-scrollbar { display: none; }
+          .nav-link { white-space: nowrap; font-size: 13px; }
+          .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 28px; }
+          .hero-visual { width: 100%; max-width: 360px; margin: 0 auto; }
+          .arch-frame::before { inset: 8px -8px -8px 8px; }
+          .display { font-size: 34px; }
+          .hero-sub { font-size: 15.5px; }
+          .scroll-cue { margin-top: 20px; }
           .hero, .about { padding-left: 0; padding-right: 0; }
           #think { border-left: none; padding-left: 0; }
         }
