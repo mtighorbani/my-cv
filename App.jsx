@@ -504,7 +504,7 @@ function About() {
               return (
                 <Reveal key={item.role} className="timeline-item">
                   <button
-                    className={`timeline-row ${isOpen ? "is-open" : ""}`}
+                    className={`timeline-row${isOpen ? " is-open" : ""}${item.current ? "" : " is-past"}`}
                     onClick={() => setOpen(isOpen ? -1 : i)}
                     aria-expanded={isOpen}
                   >
@@ -517,7 +517,7 @@ function About() {
                       <span className="timeline-meta">
                         <span className="timeline-place">{item.place}</span>
                         {" · "}
-                        {item.date}
+                        <span className="timeline-date">{item.date}</span>
                       </span>
                       <span className="timeline-lede">{item.lede}</span>
                     </span>
@@ -972,8 +972,10 @@ export default function App() {
         .timeline-dot[data-current] { border-color: var(--accent-warm); background: var(--accent-warm); }
         .timeline-heading { display: flex; flex-direction: column; gap: 4px; }
         .timeline-role { font-size: 15px; font-weight: 600; line-height: 1.35; }
+        .timeline-row.is-past .timeline-heading { opacity: 0.82; }
         .timeline-meta { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--text-faint); }
         .timeline-place { color: var(--text); font-weight: 600; }
+        .timeline-date { color: var(--text-muted); font-weight: 600; }
         .timeline-lede { color: var(--text-muted); font-size: 13px; line-height: 1.45; margin-top: 2px; }
         .timeline-toggle { color: var(--text-faint); margin-top: 4px; transition: transform 0.3s cubic-bezier(.2,.8,.2,1.4); }
         .timeline-row.is-open .timeline-toggle { transform: rotate(45deg); color: var(--accent-warm); }
